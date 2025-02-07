@@ -16,7 +16,7 @@ export const isValidPassword = (password) => {
   const regexNumber = /\d{1,}/g;
   const passwordNumberValidation = regexNumber.test(password);
 
-  const regexMayus = /[A-Z]/g;
+  const regexMayus = /[A-ZÀ-Ú]/g;
   const passwordLetterMayus = regexMayus.test(password);
 
   isValid =
