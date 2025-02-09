@@ -1,8 +1,8 @@
 export const isValidUsername = (username) => {
   let isValid;
 
-  const regexString = /\w{5,}/g;
-  isValid = regexString.test(username);
+  const usernameValidationRegex = /\w{5,}/g;
+  isValid = usernameValidationRegex.test(username);
 
   return isValid;
 };
@@ -10,18 +10,22 @@ export const isValidUsername = (username) => {
 export const isValidPassword = (password) => {
   let isValid;
 
+  const passwordMinimumLength = 8;
   const passwordLength = password.length;
-  const passwordLengthValidation = passwordLength >= 8;
+  const isPasswordLengthValid = passwordLength >= passwordMinimumLength;
 
-  const regexNumber = /\d{1,}/g;
-  const passwordNumberValidation = regexNumber.test(password);
+  const passwordNumberValidationRegex = /\d{1,}/g;
+  const hasPasswordAtLeastOneNumber =
+    passwordNumberValidationRegex.test(password);
 
-  const regexMayus = /[A-ZÀ-Ú]/g;
-  const passwordLetterMayus = regexMayus.test(password);
+  const passwordUpperCaseRegex = /[A-ZÀ-Ú]/g;
+  const hasPasswordAtLeastOneUpperCaseLetter =
+    passwordUpperCaseRegex.test(password);
 
   isValid =
-    (passwordLengthValidation === passwordNumberValidation) ===
-    passwordLetterMayus;
+    isPasswordLengthValid &&
+    hasPasswordAtLeastOneNumber &&
+    hasPasswordAtLeastOneUpperCaseLetter;
 
   return isValid;
 };
@@ -29,7 +33,7 @@ export const isValidPassword = (password) => {
 export const isSamePassword = (password1, password2) => {
   let isSame;
 
-  isSame = password2.includes(password1);
+  isSame = password1 === password2;
 
   return isSame;
 };

@@ -5,7 +5,7 @@ export const checkCredentials = (username, password) => {
   let areValidCredentials;
 
   areValidCredentials =
-    (username === storedUsername) === (password === storedPassword);
+    username === storedUsername && password === storedPassword;
 
   return areValidCredentials;
 };
