@@ -14,11 +14,11 @@ export const isValidPassword = (password) => {
   const passwordLength = password.length;
   const isPasswordLengthValid = passwordLength >= passwordMinimumLength;
 
-  const passwordNumberValidationRegex = /\d{1,}/g;
+  const passwordNumberValidationRegex = /\d/;
   const hasPasswordAtLeastOneNumber =
     passwordNumberValidationRegex.test(password);
 
-  const passwordUpperCaseRegex = /[A-ZÀ-Ú]/g;
+  const passwordUpperCaseRegex = /[A-ZÀ-Ú]/;
   const hasPasswordAtLeastOneUpperCaseLetter =
     passwordUpperCaseRegex.test(password);
 
