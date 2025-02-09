@@ -1,8 +1,8 @@
 export const isValidUsername = (username) => {
   let isValid;
 
-  const usernameValidationRegex = /\w{5,}/g;
-  isValid = usernameValidationRegex.test(username);
+  const usernameMinimumLength = 5;
+  isValid = username.length >= usernameMinimumLength;
 
   return isValid;
 };
@@ -11,8 +11,7 @@ export const isValidPassword = (password) => {
   let isValid;
 
   const passwordMinimumLength = 8;
-  const passwordLength = password.length;
-  const isPasswordLengthValid = passwordLength >= passwordMinimumLength;
+  const isPasswordLengthValid = password.length >= passwordMinimumLength;
 
   const passwordNumberValidationRegex = /\d/;
   const hasPasswordAtLeastOneNumber =
